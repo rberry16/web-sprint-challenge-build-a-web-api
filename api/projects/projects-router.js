@@ -24,7 +24,7 @@ router.post('/projects', md.checkProject, async (req, res) => {
 });
 
 //updates existing project
-router.put('/projects/:id', md.checkId, md.checkProject, async (req, res) => {
+router.put('/projects/:id', md.checkId, md.checkCompleted , md.checkProject, async (req, res) => {
     const updatedProject = await Pro.update(req.params.id, req.body);
     res.status(201).json(updatedProject);
 });

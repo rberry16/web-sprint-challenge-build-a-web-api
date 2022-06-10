@@ -5,7 +5,7 @@ const Pro = require('../projects/projects-model');
 async function checkId(req, res, next) {
     const action = await Act.get(req.params.id);
     if (!action) {
-        res.status(400).json({message: 'no action with that id found'});
+        res.status(404).json({message: 'no action with that id found'});
     } else {
         next();
     }

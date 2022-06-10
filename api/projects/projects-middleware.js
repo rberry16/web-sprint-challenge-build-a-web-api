@@ -18,7 +18,16 @@ function checkProject(req, res, next) {
     }
 }
 
+function checkCompleted(req, res, next) {
+    if (req.body.completed === undefined) {
+        res.status(400).json({message: 'must tell if project is completed'});
+    } else {
+        next();
+    }
+}
+
 module.exports = {
     checkId,
-    checkProject
+    checkProject,
+    checkCompleted
 }
